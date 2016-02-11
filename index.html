@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Stack Overflow Data Visualizatioin</title>
+</head>
+<body>
+
+    <link href="styles.css" rel="stylesheet" />
+    <script src="d3.min.js"></script>
+    <script src="d3code.js"></script>
+    <div class="top">
+        <div align="center">
+            <!--<div class="text"><h1>Adaptive Web - Assignment 1</h1> </div>-->
+            <div class="text"><h2>Visualizations</h2> </div>
+        </div>
+        <div class="text" align="center"><span style="font-style: italic;font-weight: bold">Note: Original data is not used.</span> </div>
+    <ol><li>
+        <br>
+       <table style="border:None;text-align: left">
+           <tr><td class="text"><h6>Visualizing the Query Data</h6></td></tr>
+           <tr><td class="text">
+           <span style="font-style: italic;font-weight: bold">Data: </span>The data from 'class_query.csv' is used for this visualization. The bar graph shows the total number of queries per user with the height of bar representing it and
+               the count on top of bar. The circle graph also encodes the same information with the size of cirlce representing the total.<br />
+               <span style="font-style: italic;font-weight: bold">Interaction: </span>Hover on each bar to check the number of unique timestamps per user.
+               Hover on the circle to see a pie chart showing the categories of the queries searched by the user.
+               Click on the circle to alternate the color scheme of the circles. The initial color scheme shows the dominant category of each user. Below are four colors used in this:<br />
+               <p align="center">Blue - Category B<br />
+               Orange -Category D<br />
+               Green - Category C<br />
+               Red - Category A<br />
+               </p>
+               The second color scheme is based on the size of the circle. This helps to quickly identifies users with same number of searches.<br />
+               <span style="font-style: italic;font-weight: bold">Inferences: </span>On mouseover on the bar, we can quickly see that the height of the bar halves for most of the bars. We can infer that the approximate average searches per login to be 2.<br />
+               From the circle graph, using the initial color code, we can see that the red color circles are on the bottom and are small in size. From this pattern,
+               we can infer that the users do not search A queries as often as B or C or D. This observation can be used to show B/C results for the future user searches.<br />
+
+       </td></tr></table>
+    <table align="center" >
+        <tr><td> <svg class="chart"></svg></td></tr>
+        <tr><td>
+            <svg class="axisSvg"></svg>
+        </td></tr>
+        <tr><td>
+            <div align="center">
+                <input id="uid" />
+            </div>
+            <svg class="circles"></svg>
+        </td></tr>
+    </table>
+        <br>
+        <br>
+        <br>
+        </li><li>
+        <br>
+        <table style="border:None;text-align: left">
+            <tr><td class="text"><h6>Visualizing the similarity of users</h6></td></tr>
+            <tr><td class="text">
+                <span style="font-style: italic;font-weight: bold">Data: </span> The data from 'class_clicks.csv' and 'class_select.csv' are used for this visualization. I have calculated the user similarity based on the queries searched, targets clicked and text selected.
+                The query searches, targets, selected texts are taken from the 'url' column of 'class_clicks.csv', 'target' column of 'class_clicks.csv' and 'text' column of 'class_select.csv' respectively. Words from
+                all these columsn are extracted using regex and the word counts for each user are calculated. The similarity measure used is cosine similarity and code is present in 'preprocess.py'. Each square represents one user and the color intensity indicates
+                the similarity of the user with the selected user. The initial selected user is '1'. Below is the color scheme:<br />
+                <p align="center">
+                Yellow - Selected current user<br />
+                Yellow-Green Shades - Low similarity users<br />
+                Blue-Red Shades - High similarity users<br />
+                Red - Similarity is 1<br />
+                    </p>
+
+                <span style="font-style: italic;font-weight: bold">Interaction: </span> Click on square to see the similarity of the clicked user compared with others. Hover on the square to see the commonly used words by that user. This is empty if there are no such words.     <br />
+                <span style="font-style: italic;font-weight: bold">Inferences: </span> Clicking on some users for example '26', '12' changes all the nodes to red color. However, this does not mean they are similar to all other users.
+                This indicates the drawback of using cosine similarity as it does not take the magnitude into consideration. This visualization is important since it helps us establish that cosine similarity works in
+                 this case and can be further used in recommendations.<br />
+                From the text displayed on hovering, we can easily identify that words are related to a programming language (Java in this case). This inference matters because we can guess the topic for any unknown data based on these words.
+
+            </td></tr></table>
+        <table align="center">
+            <tr>
+                <td>
+                    <div align="center">
+                        <input id="uid2" />
+                    </div>
+                    <svg class="word"></svg>
+                </td>
+                <td>
+                    <div class="counts" style="width: 300px"></div>
+                </td>
+            </tr>
+        </table>
+    </li></ol>
+    </div>
+</body>
+
+</html>

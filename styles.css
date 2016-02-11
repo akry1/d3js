@@ -1,0 +1,76 @@
+﻿.chart rect {
+  font: 10px sans-serif;
+  fill: #A30046;
+  text-align: justify;
+  padding: 3px;
+  margin: 1px;
+  color: white;
+}
+
+.textBoundary{
+  visibility: hidden;
+}
+
+.small-text, .textBoundary, .squareBoundary{
+  font-family: Gill Sans, Verdana;
+  font-size: 11px;
+  line-height: 14px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+rect:hover{
+  opacity: 0.5;
+}
+
+.pie{
+  visibility: hidden
+}
+
+table{
+  border: inset;
+}
+
+.axis text {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+#uid,#uid2 {
+  width: 300px;
+  visibility: hidden;
+  border: none;
+  font-size: 51px;
+  font-family: times, Times New Roman, times-roman, georgia, serif;
+  color: #444;
+  margin: 0;
+  padding: 0px 0px 6px 0px;
+
+  line-height: 44px;
+  letter-spacing: -2px;
+  font-weight: bold;
+}
+
+.text{
+  color: #111;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 25px;
+  font-weight: 300;
+  line-height: 32px;
+  margin: 0 0 72px;
+}
+
+.top{
+  width:100%;
+  text-align: center;
+}
+
+
+
